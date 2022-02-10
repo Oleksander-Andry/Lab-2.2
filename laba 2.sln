@@ -1,25 +1,38 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32112.339
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laba 2", "laba 2\laba 2.csproj", "{8D238EE8-08E3-4B99-964A-839DC0E8ADFD}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D238EE8-08E3-4B99-964A-839DC0E8ADFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D238EE8-08E3-4B99-964A-839DC0E8ADFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D238EE8-08E3-4B99-964A-839DC0E8ADFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D238EE8-08E3-4B99-964A-839DC0E8ADFD}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {10DB0B7F-2FC6-4786-AB8F-B528B14E6C31}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Text;
+using System.IO;
+
+namespace _LR
+{
+    class Program
+    {
+        static void Main()
+        {
+            string s;
+            double x, y;
+            StreamWriter f = new StreamWriter(@"C:\Users\Sasha\Desktop\out.txt");
+            StreamReader f1 = new StreamReader(@"C:\Users\Sasha\Desktop\in.txt");
+            string minus = new string('-', 28);
+            f.WriteLine($"Таблиця значень \n{minus}");
+            string st2 = ($"+  Функція   +  Аргумент   +  \n{minus}");
+            f.WriteLine(st2);
+
+            metka:
+            s = f1.ReadLine();
+            if (s == null) goto metka1;
+            x = double.Parse(s);
+            y = 2 - (Math.Pow(Math.E, 2 * x) + Math.Pow(Math.E, -2 * x)) / (Math.Pow(Math.E, 2) + Math.Pow(Math.E, -2));
+            string str = $"+  x = {x:f1}  +  y = {y:f3}  + \n";
+            f.WriteLine(str);
+            goto metka;
+
+            metka1:
+            f.WriteLine($"\n{minus}");
+            string st1 = ($" Склав: Лісовський Олександр-Андрій Миколайович \n");
+            f.WriteLine(st1);
+            f.Close();
+            f1.Close();
+
+        }
+    }
+}
